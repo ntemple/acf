@@ -1,5 +1,5 @@
-=== Advanced Custom Fields ===
-Contributors: Elliot Condon
+=== Advanced Custom Fields 3 ===
+Contributors: Elliot Condon, Nick Temple
 Tags: custom, field, custom field, advanced, simple fields, magic fields, more fields, repeater, matrix, post, type, text, textarea, file, image, edit, admin
 Requires at least: 3.3.0
 Tested up to: 3.5.1
@@ -7,6 +7,20 @@ License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 Fully customise WordPress edit screens with powerful fields. Boasting a professional interface and a powerful API, it’s a must-have for any web developer working with WordPress. Field types include: WYSIWYG, text, textarea, image, file, select, checkbox, page link, post object, date picker, color picker, and more!
+
+== Notice ==
+THIS IS A FORK of https://github.com/elliotcondon/acf
+
+Recently ACF came out with version 4.0, which by all accounts is an improvement over ACF3.
+
+HOWEVER, I have existing projects using ACF 3 and ACF-LITE.
+
+In order to maintain these projects, I've forked and rolled back to the latest v3 code I could find.
+Intended Changes:
+* Won't be on WordPress.org, so making smaller by removing screenshots, etc.
+* Removal of paid features
+* Bug fixes and new fields as necessary
+* May work to make it more forward compatible with 4.0, if possible, by reducing naming conflicts.
 
 == Description ==
 

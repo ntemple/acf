@@ -1,13 +1,13 @@
 <?php
 /*
-Plugin Name: Advanced Custom Fields
-Plugin URI: http://www.advancedcustomfields.com/
+Plugin Name: Advanced Custom Fields 3
+Plugin URI: https://github.com/ntemple/acf3
 Description: Fully customise WordPress edit screens with powerful fields. Boasting a professional interface and a powerful API, it’s a must-have for any web developer working with WordPress. Field types include: WYSIWYG, text, textarea, image, file, select, checkbox, page link, post object, date picker, color picker, repeater, flexible content, gallery, and more!
-Version: 3.5.8.2
-Author: Elliot Condon
-Author URI: http://www.elliotcondon.com/
+Version: 3.6.0.0
+Author: Elliot Condon, Nick Temple
+Author URI: http://www.intellispire.com/
 License: GPL
-Copyright: Elliot Condon
+Copyright: Elliot Condon, Nick Temple
 */
 
 include('core/api.php');
@@ -309,7 +309,6 @@ class Acf
 			include_once('core/fields/gallery.php');
 			$this->fields['gallery'] = new acf_Gallery($this);
 		}
-		
 		
 		// hook to load in third party fields
 		$custom = apply_filters('acf_register_field',array());
