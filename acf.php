@@ -35,7 +35,8 @@ class Acf
 		$everything_fields,
 		$third_party,
 		$location;
-	
+
+    var $unlocked = false;
 	
 	/*
 	*  Constructor
@@ -58,12 +59,6 @@ class Acf
 				'capability' => 'edit_posts', // capability to view options page
 				'title' => __('Options','acf'), // title / menu name ('Site Options')
 				'pages' => array(), // an array of sub pages ('Header, Footer, Home, etc')
-			),
-			'activation_codes' => array(
-				'repeater'			=> '', // activation code for the repeater add-on (XXXX-XXXX-XXXX-XXXX)
-				'options_page'		=> '', // activation code for the options page add-on (XXXX-XXXX-XXXX-XXXX)
-				'flexible_content'	=> '', // activation code for the flexible content add-on (XXXX-XXXX-XXXX-XXXX)
-				'gallery'			=> '', // activation code for the gallery add-on (XXXX-XXXX-XXXX-XXXX)
 			),
 		);
 		
@@ -1289,50 +1284,9 @@ foreach( $field['conditional_logic']['rules'] as $rule ):
 	
 	function is_field_unlocked($field_name)
 	{
-		$hashes = array(
-			'repeater'			=> 'bbefed143f1ec106ff3a11437bd73432',
-			'options_page'		=> '1fc8b993548891dc2b9a63ac057935d8',
-			'flexible_content'	=> 'd067e06c2b4b32b1c1f5b6f00e0d61d6',
-			'gallery'			=> '69f4adc9883195bd206a868ffa954b49',
-		);
-			
-		$hash = md5( $this->get_license_key($field_name) );
-		
-		if( $hashes[$field_name] == $hash )
-		{
-			return true;
-		}
-		
-		return false;
-		
+        return $this->unlocked;
 	}
-	
-	/*--------------------------------------------------------------------------------------
-	*
-	*	is_field_unlocked
-	*
-	*	@author Elliot Condon
-	*	@since 3.0.0
-	* 
-	*-------------------------------------------------------------------------------------*/
-	
-	function get_license_key($field_name)
-	{
-		$value = '';
-		
-		if( isset( $this->defaults['activation_codes'][ $field_name ] ) )
-		{
-			$value = $this->defaults['activation_codes'][ $field_name ];
-		}
-		
-		if( !$value )
-		{
-			$value = get_option('acf_' . $field_name . '_ac');
-		}
 
-		return $value;
-	}
-	
 	
 	/*--------------------------------------------------------------------------------------
 	*
